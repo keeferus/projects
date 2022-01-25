@@ -6,13 +6,13 @@ html, body{
 }
 
 .container{
-    display: grid;
+    display: flex;
     height: 100%;
-    grid-template-columns: 1fr 5fr 1fr;
+    /* grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas: "header header header"
                          "lef-sidebar main right-sidebar"
-                         "footer footer footer"
+                         "footer footer footer" */
 
 }
 

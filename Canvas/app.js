@@ -15,15 +15,15 @@ const center = [300, 200];
 console.log(ctx);
 */
 
-/*Draw a line
+/* /*Draw a line */
 
-ctx.beginPath();
+/* ctx.beginPath();
 ctx.moveTo(...topLeft);
 ctx.lineTo(...center);
 ctx.lineTo(...topRight);
 ctx.stroke();
-ctx.closePath();
-*/
+ctx.closePath(); */
+
 
 //Second line//
 /*
@@ -88,16 +88,100 @@ ctx.stroke();
 ctx.closePath(); */
 
 //arcs
+// covert PI to degrees
+/* const deg2Rad = (degrees) => {
+    return Math.PI / 180 * degrees;
+};
+
 
 const radius = 30;
-const start = 0;
-const end = Math.PI / 2;
+const start = deg2Rad(0);
+const end = deg2Rad(180
+);
 
 ctx.beginPath();
-ctx.moveTo(...center);
+//ctx.moveTo(...center);
 ctx.arc(...center, radius, start, end);
-
 ctx.stroke();
 ctx.closePath();
 
+//
 
+
+ctx.beginPath();
+ctx.arc(...topLeft, radius, 0, end);
+ctx.stroke();
+ctx.closePath(); */
+
+//triangle
+
+/* ctx.beginPath();
+ctx.moveTo(...topLeft);
+ctx.lineTo(...center);
+ctx.lineTo(...midLeft);
+ctx.stroke();
+ctx.closePath(); */
+
+/* const fillTriangle = (context, point1, point2, point3) => {
+    context.beginPath();
+    context.moveTo(...point1);
+    context.lineTo(...point2);
+    context.lineTo(...point3);
+    context.closePath();
+    context.fill();
+}
+
+fillTriangle (ctx, topLeft, center, midLeft);
+fillTriangle (ctx, topRight, center, midRight); */
+
+//stroke triangle 
+/* 
+const strokeTriangle = (context, point1, point2, point3) => {
+    context.beginPath();
+    context.moveTo(...point1);
+    context.lineTo(...point2);
+    context.lineTo(...point3);
+    context.closePath();
+    context.stroke();
+}
+
+strokeTriangle (ctx, topLeft, center, midLeft);
+strokeTriangle (ctx, topRight, center, midRight); */
+
+//triangle as one function
+
+/* const triangle = method => (context, point1, point2, point3) => {
+    context.beginPath();
+    context.moveTo(...point1);
+    context.lineTo(...point2);
+    context.lineTo(...point3);
+    context.closePath();
+    context[method]();
+}
+
+const fillTriangle = triangle('fill');
+const strokeTriangle = triangle('stroke');
+
+strokeTriangle (ctx, topLeft, center, midLeft);
+fillTriangle (ctx, topRight, center, midRight);
+
+ */
+
+const hexagon = method => (context, center, radius) => {
+    const SIDES = 6;
+    const ANGLE_STEP = 360 / SIDES;
+    context.beginPath();
+    const [cx, cy] = center;
+    const edgeStart = [
+        cx + radius * Math.cos(0),
+        cy + radius * Math.sin(0)
+    ];
+    context.moveTo(...edgeStart);
+    context.closePath();
+    context[method]();
+}
+
+const strokeHexagon = hexagon('stroke');
+const fillHexagon = hexagon('fill');
+
+strokeHexagon (ctx, center, 10);
