@@ -150,7 +150,7 @@ strokeTriangle (ctx, topRight, center, midRight); */
 
 //triangle as one function
 
-/* const triangle = method => (context, point1, point2, point3) => {
+const triangle = method => (context, point1, point2, point3) => {
     context.beginPath();
     context.moveTo(...point1);
     context.lineTo(...point2);
@@ -165,9 +165,9 @@ const strokeTriangle = triangle('stroke');
 strokeTriangle (ctx, topLeft, center, midLeft);
 fillTriangle (ctx, topRight, center, midRight);
 
- */
+ 
 
-const hexagon = method => (context, center, radius) => {
+/* const hexagon = method => (context, center, radius) => {
     const SIDES = 6;
     const ANGLE_STEP = 360 / SIDES;
     context.beginPath();
@@ -184,4 +184,7 @@ const hexagon = method => (context, center, radius) => {
 const strokeHexagon = hexagon('stroke');
 const fillHexagon = hexagon('fill');
 
-strokeHexagon (ctx, center, 10);
+strokeHexagon (ctx, center, 10); */
+
+//colors
+

@@ -19,7 +19,7 @@ const line = (ctx, firstPoint, secondPoint) => {
     ctx.closePath();
 };
 
-const figure =(ctx, ...points) => {
+const figure = (ctx, ...points) => {
     ctx.beginPath();
     const [first, ...otherPoints] = points;
     ctx.moveTo(...first);
@@ -29,7 +29,7 @@ const figure =(ctx, ...points) => {
     ctx.closePath();
 };
 
-const outline =(ctx, ...points) => {
+const outline = (ctx, ...points) => {
     ctx.beginPath();
     const [first, ...otherPoints] = points;
     ctx.moveTo(...first);
@@ -39,22 +39,37 @@ const outline =(ctx, ...points) => {
     ctx.closePath();
 };
 
-const getRectCenter = (center, width, height) =>{
+const getRectCenter = (center, width, height) => {
     const [x, y] = center;
     const cx = x - width / 2;
     const cy = y - width / 2;
     return [cx, cy];
-}
-const outlinedSquare = (ctx, center, size, color) =>{
+};
+const outlinedSquare = (ctx, center, size, color) => {
     ctx.save();
     ctx.strokeStyle = color;
     ctx.strokeRect(...center, size, size);
     ctx.resotre();
-}
+};
 
-const filledSquare = (ctx, center, size, color) =>{
+const filledSquare = (ctx, center, size, color) => {
     ctx.save();
     ctx.fillStyle = color;
     ctx.fillRect(...center, size, size);
     ctx.resotre();
-}
+};
+
+
+ctx.strokeStyle = 'purple';
+figure(ctx, bottomRight, center, midRight);
+figure(ctx, bottomLeft, center, midLeft);
+
+
+filledSquare(ctx, [200, 0], 200, 'maroon');
+
+
+ctx.fillStyle = 'pink';
+figure(ctx, bottomLeft, center, bottomRight);
+
+
+
