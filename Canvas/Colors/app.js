@@ -15,8 +15,9 @@ const line = (ctx, firstPoint, secondPoint) => {
     ctx.beginPath();
     ctx.moveTo(...firstPoint);
     ctx.lineTo(...secondPoint);
-    ctx.stroke();
     ctx.closePath();
+    ctx.stroke();
+
 };
 
 const figure = (ctx, ...points) => {
@@ -25,6 +26,7 @@ const figure = (ctx, ...points) => {
     ctx.moveTo(...first);
     otherPoints.forEach(point => ctx.lineTo(...point));
     ctx.lineTo(...first);
+    /* ctx.stroke(); */
     ctx.fill();
     ctx.closePath();
 };
@@ -59,17 +61,68 @@ const filledSquare = (ctx, center, size, color) => {
     ctx.resotre();
 };
 
+//line Style LineDash
 
-ctx.strokeStyle = 'purple';
+/* ctx.setLineDash([10, 20, 5, 10]);
+line(ctx, midLeft, midRight);
+ctx.setLineDash([]); */
+
+//transparent colors
+
+/* ctx.lineWidth = 10;
+ctx.fillStyle = 'rgba(0, 255, 0, 0.3)';
+figure(ctx, topLeft, center, topRight);
+ctx.fillStyle = 'rgba(255, 0, 255, 0.3)';
+figure(ctx, topLeft, midTop, center);
+ */
+
+//text
+
+//setup text center *helper
+
+const point = (ctx, x, y) => {
+    ctx.save();
+    ctx.fillStyle = 'black';
+    ctx.beginPath();
+    ctx.arc(x, y, 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+}
+const message = 'welcome to my canvas project';
+ctx.font = '40px Comic Sans MS'
+ctx.fillStyle = 'rgba(100, 0, 200, 0.6';
+ctx.strokeStyle = 'rgba(0, 0, 0, 1';
+
+/* point(ctx, ...center); */
+
+ctx.strokeText(message, 20, 200);
+ctx.fillText(message, 20, 200);
+
+const linear = ctx.createLinearGradient(...midLeft, ...midRight);
+//console.log(linear);
+linear.addColorStop(.3, 'red');
+linear.addColorStop(.2, 'green');
+ctx.fillStyle = linear;
+ctx.fillRect(...topLeft, canvas.width, canvas.height);
+
+
+
+
+/* ctx.fillStyle = 'pink';
+figure(ctx, bottomLeft, center, bottomRight); */
+
+/* ctx.fillStyle = 'purple';
 figure(ctx, bottomRight, center, midRight);
 figure(ctx, bottomLeft, center, midLeft);
 
 
 filledSquare(ctx, [200, 0], 200, 'maroon');
+ */
 
 
-ctx.fillStyle = 'pink';
-figure(ctx, bottomLeft, center, bottomRight);
+
+
 
 
 

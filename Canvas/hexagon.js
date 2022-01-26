@@ -15,4 +15,4 @@ const hexagon = method => (context, center, radius) => {
 const strokeHexagon = hexagon('stroke');
 const fillHexagon = hexagon('fill');
 
-strokeHexagon (ctx, center, 10);
+strokeHexagon(ctx, center, 10);
