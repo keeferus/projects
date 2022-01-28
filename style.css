@@ -1,0 +1,37 @@
+html, body{
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-areas: "header header header"
+                         "lef-sidebar main right-sidebar"
+                         "footer footer footer"
+
+}
+
+.canvas{
+    grid-area: main;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin: auto;
+}
+.white-border{
+    border-color: #66fcf1;
+}
+
+.border-sm{
+    border-width: 5px;
+
+}
+
+.border-solid{
+    border-style: solid;
+}
